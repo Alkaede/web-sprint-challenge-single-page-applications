@@ -1,10 +1,16 @@
 import React from "react";
+import { Homepg } from "./Components/Homepage";
+import { Navigation } from './Components/Nav'
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const App = () => {
   return (
     <>
-      <h1>Lambda Eats</h1>
-      <p>You can remove this code and create your own header</p>
+    <Router>
+      <Navigation />
+    </Router>
+
+      <Homepg />
     </>
   );
 };
