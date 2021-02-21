@@ -1,6 +1,7 @@
 import React from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Styling = styled.div`
   color: red;
@@ -37,10 +38,14 @@ export const Navigation = () => {
   return(
     <Styling>
       <Navbar expand="lg">
-        <Navbar.Brand className='brand' href="/home">Lambda<span>Eats</span></Navbar.Brand>
+        <Navbar.Brand className='brand' href="/">Lambda<span>Eats</span></Navbar.Brand>
           <Nav>
-            <Nav.Item><Nav.Link href="/home">Home</Nav.Link></Nav.Item> 
-            <Nav.Item><Nav.Link href="/help">Help</Nav.Link></Nav.Item>
+            <Nav.Item>
+              <Link className='Nav-Link' to='/'>Home</Link>  
+            </Nav.Item> 
+            <Nav.Item>
+              <Link className='Nav-Link' to='/help'>Help</Link>  
+            </Nav.Item>
           </Nav>
       </Navbar>
     </Styling>

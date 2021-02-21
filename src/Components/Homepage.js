@@ -1,5 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const FoodContainer = styled.div`
 
@@ -45,7 +46,7 @@ const FoodContainer = styled.div`
   }
 
   hr{
-    margin: 5%;
+    margin: 2% 5%;
   }
 `
 
@@ -56,7 +57,7 @@ export const Homepg = () => {
         <div className='pizza-child'>
           <div>
             <h1>Pizza</h1>
-            <button href='/order'>Order Now!</button>
+            <Link to='/pizza'><button>Order Now!</button></Link>
           </div>
         </div>
       </div>
@@ -81,27 +82,6 @@ export const Homepg = () => {
         </div>
       </div>
     <hr />
-  {/*                            Disabled for now                                          */}
-      {/* <div className='food'>
-          <div>
-            <div className='test'>
-            </div>
-            <h3>Food place1</h3>
-            <p>wow this place expensive?</p>
-          </div>
-          <div>
-            <div className='test'>
-            </div>
-            <h3>Food place2</h3>
-            <p>wow this place expensive?</p>
-          </div>
-          <div>
-            <div className='test'>
-            </div>
-            <h3>Food place3</h3>
-            <p>wow this place expensive?</p>
-          </div>
-      </div> */}
     </FoodContainer>
   )
 }
