@@ -1,7 +1,9 @@
+import * as yup from 'yup';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Foodform from './FoodForm';
 import PayScreen from './PayScreen';
+import schema from './Schema/Schema';
 
 const initVal = {
   size: '',
@@ -60,11 +62,35 @@ export default function FormStuff(){
       })
   }
   
+  const onChange = (name, value) => {
+    yup
+      .reach(schema, name)
+      .validate(value)
+      .then(() => {
+        setFormErr({...formErr, [name]: '',})
+      })
+      .catch(err => {
+        setFormErr({...formErr, [name]: err.errors[0]})
+      })
+    setFormVal({...formVal, [name]: value})
+  }
   
-  
+  useEffect(() => {
+    schema.isValid(formVal).then(valid => {
+      setDisabled(!valid);
+    });
+  }, [formVal]);
   
   
   return(
-    <div>yes</div>
+    <div>
+      <Foodform 
+        values={formVal}
+        newForm={newPizza}
+        onChange={onChange}
+        disabled={disabled}
+        errors={formErr}
+      />
+    </div>
   )
 }
